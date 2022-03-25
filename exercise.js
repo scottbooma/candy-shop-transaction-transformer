@@ -5,18 +5,19 @@ function candySalesToObject(sales) {
     return salesObject
 }
 
-function salesDayToObject (date, daySales) {
-    
-
-    // return {
-    // date: (dateValue)
-    sales: daySales.map(daySale => {
-        candySalesToObject(daySale)
-    })
+function salesDayToObject(date, daySales) {
+    const dateProperty = Object.keys(daySales).toString();
+    const dateValues = daySales[date];
+    return {
+        date: dateProperty,
+        sales: dateValues.map((dateValue) =>
+            candySalesToObject(dateValue)
+        )
+    }
 }
 
 module.exports = {
     candySalesToObject,
-    // salesDayToObject,
+    salesDayToObject,
     // allSalesToArray
 };
