@@ -16,8 +16,17 @@ function salesDayToObject(date, daySales) {
     }
 }
 
+function allSalesToArray(allSales) {
+    const results = Object.entries(allSales).map(([k, v]) => ({ [k]: v }));
+    const date = Object.keys(results).toString();
+    const finalAnswer = results.map(result =>
+        salesDayToObject(date, result))
+    return finalAnswer
+    return date;
+}
+
 module.exports = {
     candySalesToObject,
     salesDayToObject,
-    // allSalesToArray
+    allSalesToArray
 };
